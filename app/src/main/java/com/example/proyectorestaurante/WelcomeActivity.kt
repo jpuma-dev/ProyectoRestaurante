@@ -5,12 +5,15 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.viewpager2.widget.ViewPager2
 import com.example.proyectorestaurante.databinding.ActivityWelcomeBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
 class WelcomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityWelcomeBinding
+    private var autoNavDone = false
+    private lateinit var pageCallback: ViewPager2.OnPageChangeCallback
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +23,7 @@ class WelcomeActivity : AppCompatActivity() {
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Para que "Omitir" no se meta bajo la status bar (notch)
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(bars.left, bars.top, bars.right, bars.bottom)
@@ -51,10 +55,34 @@ class WelcomeActivity : AppCompatActivity() {
             tab.setIcon(R.drawable.dot_selector)
         }.attach()
 
+        // Auto-navega cuando llega a la última
+        pageCallback = object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                if (position == pages.lastIndex && !autoNavDone) {
+                    autoNavDone = true
+                    binding.viewPager.postDelayed({
+                        startActivity(Intent(this@WelcomeActivity, UbicacionActivity::class.java))
+                        finish()
+                    }, 900)
+                }
+            }
+        }
+        binding.viewPager.registerOnPageChangeCallback(pageCallback)
+
+        // Omitir
         binding.OmitirTxtView.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, UbicacionActivity::class.java))
             finish()
         }
     }
+
+    override fun onDestroy() {
+        if (::pageCallback.isInitialized) {
+            binding.viewPager.unregisterOnPageChangeCallback(pageCallback)
+        }
+        super.onDestroy()
+    }
 }
+
 
