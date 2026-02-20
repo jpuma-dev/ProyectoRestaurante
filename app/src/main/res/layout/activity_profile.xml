@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- PERFIL HEADER -->
+
+        <ImageView
+            android:id="@+id/imgUser"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@android:drawable/sym_def_app_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvSaludo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buen día"
+            android:textSize="14sp"
+            app:layout_constraintTop_toTopOf="@id/imgUser"
+            app:layout_constraintStart_toEndOf="@id/imgUser"
+            android:layout_marginStart="12dp"/>
+
+        <TextView
+            android:id="@+id/tvNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuario"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/tvSaludo"
+            app:layout_constraintStart_toStartOf="@id/tvSaludo"/>
+
+        <!-- PAGOS Y PEDIDOS -->
+
+        <TextView
+            android:id="@+id/tvPagos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pagos y pedidos"
+            android:textStyle="bold"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@id/imgUser"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <!-- ITEM -->
+        <TextView
+            android:id="@+id/itemMetodos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="💳  Métodos de pago"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tvPagos"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/itemMisPagos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📄  Mis pagos"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/itemMetodos"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/itemPedidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📦  Mis pedidos"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/itemMisPagos"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <!-- CONFIGURACION -->
+
+        <TextView
+            android:id="@+id/tvConfig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Configuración"
+            android:textStyle="bold"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@id/itemPedidos"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/itemInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="👤  Información personal"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tvConfig"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/itemVida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✨  Estilo de vida"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/itemInfo"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/itemDirecciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📍  Direcciones"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/itemVida"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/itemNotificaciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔔  Notificaciones"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/itemDirecciones"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/itemSeguridad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔒  Seguridad de cuenta"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/itemNotificaciones"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <!-- SOPORTE -->
+
+        <TextView
+            android:id="@+id/tvSoporte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Soporte"
+            android:textStyle="bold"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@id/itemSeguridad"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/itemAyuda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="❓  Ayuda y soporte"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tvSoporte"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/itemLibro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📘  Libro de reclamaciones"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/itemAyuda"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/itemCerrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🚪  Cerrar sesión"
+            android:textColor="#D32F2F"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="40dp"
+            app:layout_constraintTop_toBottomOf="@id/itemLibro"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
