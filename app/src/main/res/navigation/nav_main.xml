@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/menuHomeFragment">
+
+    <fragment
+        android:id="@+id/menuHomeFragment"
+        android:name="com.example.proyectorestaurante.MenuHomeFragment"
+        android:label="Inicio">
+        <action
+            android:id="@+id/action_menuHomeFragment_to_restauranteFragment"
+            app:destination="@id/restauranteFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/restauranteFragment"
+        android:name="com.example.proyectorestaurante.RestauranteFragment"
+        android:label="Restaurante" />
+
+    <fragment
+        android:id="@+id/restauranteListaFragment"
+        android:name="com.example.proyectorestaurante.RestauranteListaFragment"
+        android:label="Lista">
+        <argument
+            android:name="tipo"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
