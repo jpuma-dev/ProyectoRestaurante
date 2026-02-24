@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/tvTituloRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Regístrate"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <EditText
+            android:id="@+id/etNombre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Nombre"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/tvTituloRegister"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/etApellidos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Apellidos"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/etNombre"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/etEmailRegister"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/etApellidos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/etPasswordRegister"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/etEmailRegister"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/etCiudad"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Ciudad"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/etPasswordRegister"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvPreguntaCel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Cuál es tu celular?"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/etCiudad"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <EditText
+            android:id="@+id/etCelular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Celular"
+            android:inputType="phone"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvPreguntaCel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <CheckBox
+            android:id="@+id/cbTerminos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Acepto los términos y condiciones y políticas de privacidad"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/etCelular"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Button
+            android:id="@+id/btnRegistrar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Registrarse"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#FF9800"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/cbTerminos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvIniciarSesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Ya tienes cuenta? Inicia sesión"
+            android:textColor="#FF9800"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintTop_toBottomOf="@id/btnRegistrar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
