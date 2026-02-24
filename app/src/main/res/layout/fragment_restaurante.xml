@@ -12,7 +12,39 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
+        <FrameLayout
+            android:id="@+id/cartBadgeContainer"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
+            <ImageButton
+                android:id="@+id/btnCart"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_shopping_cart"
+                android:tint="@color/orange_main"
+                android:contentDescription="Carrito" />
+
+            <TextView
+                android:id="@+id/tvCartBadge"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_badge_circle"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@android:color/white"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:visibility="gone"/>
+        </FrameLayout>
         <TextView
             android:id="@+id/tvDireccion"
             android:layout_width="0dp"
@@ -51,7 +83,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-        <!-- Card entrega -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardEntrega"
             android:layout_width="0dp"
@@ -94,14 +125,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="🚚  Envío: S/6.00  S/0.00, para compras desde S/24.00"
+            android:text="🚚  Envío: a  S/0.00, para compras desde S/24.00"
             android:textColor="@color/gray_text"
             android:textSize="12sp"
             app:layout_constraintTop_toBottomOf="@id/cardEntrega"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-        <!-- ATAJOS rápidos (clicables) -->
+
         <LinearLayout
             android:id="@+id/rowAtajos"
             android:layout_width="0dp"
@@ -210,7 +241,7 @@
 
         </LinearLayout>
 
-        <!-- Sección Combos -->
+
         <TextView
             android:id="@+id/tvCombosHeader"
             android:layout_width="0dp"
@@ -234,7 +265,7 @@
             app:layout_constraintTop_toTopOf="@id/tvCombosHeader"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-        <!-- Preview combos (luego API) -->
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPreviewCombos"
             android:layout_width="0dp"
@@ -244,7 +275,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-        <!-- Sección Platos -->
+
         <TextView
             android:id="@+id/tvPlatosHeader"
             android:layout_width="0dp"
@@ -277,7 +308,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-        <!-- Sección Bebidas -->
+
         <TextView
             android:id="@+id/tvBebidasHeader"
             android:layout_width="0dp"
@@ -309,6 +340,8 @@
             app:layout_constraintTop_toBottomOf="@id/tvBebidasHeader"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

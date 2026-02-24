@@ -105,7 +105,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-        <!-- Header Platos -->
+
         <TextView
             android:id="@+id/tvPlatosHeader"
             android:layout_width="0dp"
@@ -137,6 +137,50 @@
             android:nestedScrollingEnabled="false"
             android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@id/tvPlatosHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+            android:id="@+id/divBebidas"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="14dp"
+            android:background="@color/gray_light"
+            app:layout_constraintTop_toBottomOf="@id/rvPlatos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvBebidasHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Bebidas"
+            android:textColor="@color/black_text"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/divBebidas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnToggleBebidas"/>
+
+        <ImageButton
+            android:id="@+id/btnToggleBebidas"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_expand_less"
+            android:tint="@color/orange_main"
+            app:layout_constraintTop_toTopOf="@id/tvBebidasHeader"
+            app:layout_constraintBottom_toBottomOf="@id/tvBebidasHeader"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvBebidas"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tvBebidasHeader"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
