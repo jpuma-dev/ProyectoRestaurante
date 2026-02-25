@@ -56,4 +56,8 @@
         android:id="@+id/graciasPedidoFragment"
         android:name="com.example.proyectorestaurante.GraciasPedidoFragment"
         android:label="Gracias" />
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.example.proyectorestaurante.PerfilFragment"
+        android:label="Perfil" />
 </navigation>
