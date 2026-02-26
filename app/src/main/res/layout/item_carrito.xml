@@ -55,7 +55,7 @@
             android:layout_height="38dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_delete"
-            android:tint="@color/orange_main"
+            app:tint="@color/orange_main"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
@@ -66,7 +66,7 @@
             android:layout_height="36dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_remove"
-            android:tint="#999999"
+            app:tint="#999999"
             app:layout_constraintEnd_toStartOf="@id/tvCantidad"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -89,7 +89,7 @@
             android:layout_height="36dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_add"
-            android:tint="@color/orange_main"
+            app:tint="@color/orange_main"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 

@@ -27,7 +27,7 @@
                 android:layout_height="48dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_shopping_cart"
-                android:tint="@color/orange_main"
+                app:tint="@color/orange_main"
                 android:contentDescription="Carrito" />
 
             <TextView

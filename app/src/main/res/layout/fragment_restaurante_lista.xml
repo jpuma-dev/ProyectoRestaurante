@@ -80,7 +80,7 @@
             android:layout_height="36dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_expand_less"
-            android:tint="@color/orange_main"
+            app:tint="@color/orange_main"
             app:layout_constraintTop_toTopOf="@id/tvCombosHeader"
             app:layout_constraintBottom_toBottomOf="@id/tvCombosHeader"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -125,7 +125,7 @@
             android:layout_height="36dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_expand_less"
-            android:tint="@color/orange_main"
+            app:tint="@color/orange_main"
             app:layout_constraintTop_toTopOf="@id/tvPlatosHeader"
             app:layout_constraintBottom_toBottomOf="@id/tvPlatosHeader"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -169,7 +169,7 @@
             android:layout_height="36dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_expand_less"
-            android:tint="@color/orange_main"
+            app:tint="@color/orange_main"
             app:layout_constraintTop_toTopOf="@id/tvBebidasHeader"
             app:layout_constraintBottom_toBottomOf="@id/tvBebidasHeader"
             app:layout_constraintEnd_toEndOf="parent"/>
