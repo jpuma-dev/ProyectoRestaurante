@@ -8,10 +8,11 @@ object CartManager {
 
     fun add(producto: ProductoUI) {
         val idx = items.indexOfFirst { it.id == producto.id }
+
         if (idx >= 0) {
-            items[idx].cantidad += 1
+            items[idx].cantidad += producto.cantidad
         } else {
-            items.add(producto.copy(cantidad = 1))
+            items.add(producto)
         }
     }
 

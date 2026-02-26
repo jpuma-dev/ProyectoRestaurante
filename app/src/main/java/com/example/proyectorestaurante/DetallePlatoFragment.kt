@@ -6,78 +6,107 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.android.material.button.MaterialButton
+import kotlinx.coroutines.launch
 
 class DetallePlatoFragment : Fragment(R.layout.fragment_detalle_plato) {
-
     private var cantidad = 1
-    private var precioUnit = 0.0
-
+    private var precioUnitario = 0.0
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val id = arguments?.getString("id") ?: ""
-        val nombre = arguments?.getString("nombre") ?: "Producto"
-        precioUnit = arguments?.getDouble("precio") ?: 0.0
-        val img = arguments?.getString("img")
 
-        val imgHeader = view.findViewById<ImageView>(R.id.imgHeader)
-        val tvNombre = view.findViewById<TextView>(R.id.tvNombre)
-        val tvPrecioUnit = view.findViewById<TextView>(R.id.tvPrecioUnit)
-        val tvCantidad = view.findViewById<TextView>(R.id.tvCantidad)
-        val btnMinus = view.findViewById<ImageButton>(R.id.btnMinus)
-        val btnPlus = view.findViewById<ImageButton>(R.id.btnPlus)
-        val btnAgregar = view.findViewById<MaterialButton>(R.id.btnAgregarGrande)
+        lifecycleScope.launch {
+            try {
+                val response = RetrofitClient.api.getMealById(id)
+                val meal = response.meals?.firstOrNull()
 
-        view.findViewById<ImageButton>(R.id.btnBack).setOnClickListener {
-            findNavController().popBackStack()
+                view.findViewById<TextView>(R.id.tvDescripcion).text =
+                    meal?.strInstructions ?: "Sin descripción disponible"
+
+            } catch (e: Exception) {
+                view.findViewById<TextView>(R.id.tvDescripcion).text =
+                    "No se pudo cargar la descripción"
+            }
         }
 
-        tvNombre.text = nombre
-        tvPrecioUnit.text = "S/ %.2f".format(precioUnit)
 
-        Glide.with(view)
-            .load(img)
-            .placeholder(R.mipmap.ic_launcher)
-            .into(imgHeader)
 
-        fun updateBoton() {
+        val nombre = arguments?.getString("nombre") ?: ""
+        val precio = arguments?.getDouble("precio") ?: 0.0
+        val imagenUrl = arguments?.getString("img")
+
+
+        val img = view.findViewById<ImageView>(R.id.imgDetalle)
+        val tvNombre = view.findViewById<TextView>(R.id.tvNombreDetalle)
+        val tvPrecio = view.findViewById<TextView>(R.id.tvPrecioDetalle)
+        val btnAgregar = view.findViewById<MaterialButton>(R.id.btnAgregar)
+        val btnBack = view.findViewById<ImageButton>(R.id.btnBack)
+        val tvCantidad = view.findViewById<TextView>(R.id.tvCantidad)
+        val btnMas = view.findViewById<ImageButton>(R.id.btnMas)
+        val btnMenos = view.findViewById<ImageButton>(R.id.btnMenos)
+
+        tvCantidad.text = cantidad.toString()
+
+        fun actualizarVista() {
+            val total = precioUnitario * cantidad
+
             tvCantidad.text = cantidad.toString()
-            val total = precioUnit * cantidad
+            tvPrecio.text = "S/ %.2f".format(total)
+
             btnAgregar.text = "Agregar S/ %.2f".format(total)
         }
 
-        btnMinus.setOnClickListener {
+        precioUnitario = precio
+        actualizarVista()
+
+        btnMas.setOnClickListener {
+            cantidad++
+            actualizarVista()
+        }
+
+        btnMenos.setOnClickListener {
             if (cantidad > 1) {
                 cantidad--
-                updateBoton()
+                actualizarVista()
             }
         }
 
-        btnPlus.setOnClickListener {
-            cantidad++
-            updateBoton()
-        }
+        tvNombre.text = nombre
+        tvPrecio.text = "S/ %.2f".format(precio)
 
-        updateBoton()
+        Glide.with(this)
+            .load(imagenUrl)
+            .placeholder(R.drawable.food_header)
+            .into(img)
+
+
+
+        btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
 
         btnAgregar.setOnClickListener {
+
             val producto = ProductoUI(
                 id = id,
                 nombre = nombre,
-                precio = precioUnit,
-                imagenUrl = img,
-                cantidad = 1
+                precio = precioUnitario,
+                imagenUrl = imagenUrl,
+                cantidad = cantidad
             )
 
-            repeat(cantidad) {
-                CartManager.add(producto)
-            }
+            CartManager.add(producto)
 
             findNavController().navigate(R.id.carritoFragment)
         }
+
+
+
     }
 }

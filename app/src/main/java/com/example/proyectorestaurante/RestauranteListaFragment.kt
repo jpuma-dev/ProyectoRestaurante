@@ -59,6 +59,7 @@ class RestauranteListaFragment : Fragment(R.layout.fragment_restaurante_lista) {
                             putDouble("precio", producto.precio)
                             putString("img", producto.imagenUrl)
                         }
+
                         findNavController().navigate(R.id.detallePlatoFragment, b)
                     },
                     onAddClick = { producto ->

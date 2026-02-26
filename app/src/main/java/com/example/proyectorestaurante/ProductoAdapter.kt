@@ -42,7 +42,13 @@ class ProductoAdapter(
                 .into(holder.imgProducto)
         }
 
-        holder.btnAdd.setOnClickListener { onAddClick(item) }
+        holder.itemView.setOnClickListener {
+            onItemClick(item)
+        }
+
+        holder.btnAdd.setOnClickListener {
+            onAddClick(item)
+        }
     }
 
     override fun getItemCount(): Int = items.size

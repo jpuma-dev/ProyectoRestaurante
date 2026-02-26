@@ -9,4 +9,9 @@ interface ApiService {
     suspend fun filterByCategory(
         @Query("c") category: String
     ): MealsResponse
+
+    @GET("lookup.php")
+    suspend fun getMealById(
+        @Query("i") id: String
+    ): MealsResponse
 }
