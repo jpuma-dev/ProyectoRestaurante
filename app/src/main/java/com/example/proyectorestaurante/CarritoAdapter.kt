@@ -39,10 +39,15 @@ class CarritoAdapter(
 
         holder.tvPrecio.text = "S/ %.2f".format(item.precio * item.cantidad)
 
-        Glide.with(holder.itemView)
-            .load(item.imagenUrl)
-            .placeholder(R.drawable.food_header)
-            .into(holder.img)
+        if (item.imagenUrl != null) {
+            Glide.with(holder.itemView)
+                .load(item.imagenUrl)
+                .into(holder.img)
+        } else if (item.imagenRes != null) {
+            holder.img.setImageResource(item.imagenRes)
+        } else {
+            holder.img.setImageResource(R.drawable.food_header)
+        }
 
         holder.btnPlus.setOnClickListener {
             CartManager.increase(item.id)

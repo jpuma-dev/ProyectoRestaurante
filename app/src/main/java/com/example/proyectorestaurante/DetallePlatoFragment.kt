@@ -38,7 +38,8 @@ class DetallePlatoFragment : Fragment(R.layout.fragment_detalle_plato) {
 
         val nombre = arguments?.getString("nombre") ?: ""
         val precio = arguments?.getDouble("precio") ?: 0.0
-        val imagenUrl = arguments?.getString("img")
+        val imagenUrl = arguments?.getString("imgUrl")
+        val imagenRes = arguments?.getInt("imgRes") ?: 0
 
 
         val img = view.findViewById<ImageView>(R.id.imgDetalle)
@@ -79,10 +80,16 @@ class DetallePlatoFragment : Fragment(R.layout.fragment_detalle_plato) {
         tvNombre.text = nombre
         tvPrecio.text = "S/ %.2f".format(precio)
 
-        Glide.with(this)
-            .load(imagenUrl)
-            .placeholder(R.drawable.food_header)
-            .into(img)
+        if (!imagenUrl.isNullOrEmpty()) {
+            Glide.with(this)
+                .load(imagenUrl)
+                .placeholder(R.drawable.food_header)
+                .into(img)
+        } else if (imagenRes != 0) {
+            img.setImageResource(imagenRes)
+        } else {
+            img.setImageResource(R.drawable.food_header)
+        }
 
 
 
@@ -98,6 +105,7 @@ class DetallePlatoFragment : Fragment(R.layout.fragment_detalle_plato) {
                 nombre = nombre,
                 precio = precioUnitario,
                 imagenUrl = imagenUrl,
+                imagenRes = if (imagenRes != 0) imagenRes else null,
                 cantidad = cantidad
             )
 

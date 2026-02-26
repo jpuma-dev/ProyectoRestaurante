@@ -66,7 +66,8 @@ class RestauranteFragment : Fragment(R.layout.fragment_restaurante) {
                 putString("id", item.id)
                 putString("nombre", item.nombre)
                 putDouble("precio", item.precio)
-                putString("img", item.imagenUrl)
+                putString("imgUrl", item.imagenUrl)
+                putInt("imgRes", item.imagenRes ?: 0)
             }
             findNavController().navigate(R.id.detallePlatoFragment, b)
         }

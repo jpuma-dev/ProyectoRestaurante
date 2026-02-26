@@ -36,11 +36,11 @@ class PedidoFinalFragment : Fragment(R.layout.fragment_pedido_final) {
         rv = view.findViewById(R.id.rvPedido)
 
 
-        // Dirección
+
         val prefs = requireContext().getSharedPreferences("app_prefs", android.content.Context.MODE_PRIVATE)
         tvDireccion.text = prefs.getString("direccion", "Sin dirección")
 
-        // Lista (resumen del carrito)
+
         rv.layoutManager = LinearLayoutManager(requireContext())
         rv.adapter = PedidoFinalAdapter(
             items = CartManager.getItems(),
@@ -56,9 +56,9 @@ class PedidoFinalFragment : Fragment(R.layout.fragment_pedido_final) {
         val adapterPago = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, opcionesPago)
         actMetodoPago.setAdapter(adapterPago)
 
-// por defecto
+
         actMetodoPago.setText("Tarjeta", false)
-        // Entrega: cards
+
         val cardInmediata = view.findViewById<MaterialCardView>(R.id.cardInmediata)
         val cardProgramada = view.findViewById<MaterialCardView>(R.id.cardProgramada)
 
