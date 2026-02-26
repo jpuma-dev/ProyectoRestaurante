@@ -8,7 +8,7 @@
     android:background="@android:color/white"
     tools:context=".UbicacionActivity">
 
-    <!-- MAPA REAL (OSMDroid) -->
+
     <org.osmdroid.views.MapView
         android:id="@+id/mapView"
         android:layout_width="0dp"
@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Flecha atrás (tu imagen) -->
+
     <ImageView
         android:id="@+id/btnBack"
         android:layout_width="48dp"
@@ -31,7 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Bloque inferior -->
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardContent"
         android:layout_width="0dp"

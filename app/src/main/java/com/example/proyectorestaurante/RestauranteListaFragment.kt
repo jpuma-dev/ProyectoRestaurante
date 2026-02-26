@@ -67,11 +67,9 @@ class RestauranteListaFragment : Fragment(R.layout.fragment_restaurante_lista) {
                         Toast.makeText(requireContext(), "Agregado: ${producto.nombre}", Toast.LENGTH_SHORT).show()
                     }
                 )
-
                 if (items.isEmpty()) {
                     Toast.makeText(requireContext(), "No hay datos para mostrar", Toast.LENGTH_SHORT).show()
                 }
-
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Error API: ${e.message}", Toast.LENGTH_LONG).show()
             }
@@ -80,10 +78,11 @@ class RestauranteListaFragment : Fragment(R.layout.fragment_restaurante_lista) {
 
     private fun bebidasLocal(): List<ProductoUI> {
         return listOf(
-            ProductoUI(id = "beb1", nombre = "Agua sin gas", precio = 2.90, imagenUrl = null),
-            ProductoUI(id = "beb2", nombre = "Gaseosa personal", precio = 4.50, imagenUrl = null),
-            ProductoUI(id = "beb3", nombre = "Jugo natural", precio = 6.50, imagenUrl = null),
-            ProductoUI(id = "beb4", nombre = "Chicha morada", precio = 7.00, imagenUrl = null)
+            ProductoUI(id = "beb1", nombre = "Agua sin gas", precio = 2.90, imagenRes = R.drawable.agua),
+            ProductoUI(id = "beb2", nombre = "Gaseosa personal", precio = 4.50, imagenRes = R.drawable.gaseosa),
+            ProductoUI(id = "beb3", nombre = "Jugo natural", precio = 6.50, imagenRes = R.drawable.jugo),
+            ProductoUI(id = "beb4", nombre = "Chicha morada", precio = 7.00, imagenRes = R.drawable.chicha)
+
         )
     }
 

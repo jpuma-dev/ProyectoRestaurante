@@ -1,5 +1,6 @@
 package com.example.proyectorestaurante
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
@@ -93,8 +94,8 @@ class RestauranteFragment : Fragment(R.layout.fragment_restaurante) {
 
 
         val combos = listOf(
-            ProductoUI(id = "combo_pb", nombre = "Combo: Plato + Bebida", precio = 29.90, imagenUrl = null),
-            ProductoUI(id = "combo_pbp", nombre = "Combo: Plato + Bebida + Postre", precio = 37.90, imagenUrl = null)
+            ProductoUI(id = "combo_pb", nombre = "Combo: Plato + Bebida", precio = 29.90, imagenRes = R.drawable.combo_pb),
+            ProductoUI(id = "combo_pbp", nombre = "Combo: Plato + Bebida + Postre", precio = 37.90, imagenRes = R.drawable.combo_pbp)
         )
 
         rvCombos.adapter = ProductoAdapter(
@@ -156,13 +157,18 @@ class RestauranteFragment : Fragment(R.layout.fragment_restaurante) {
             val count = CartManager.countTotalItems()
             it.visibility = if (count <= 0) View.GONE else View.VISIBLE
             it.text = if (count > 99) "99+" else count.toString()
+            val prefs = requireContext().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+            val direccion = prefs.getString("direccion", "Sin dirección")
+            view?.findViewById<TextView>(R.id.tvDireccion)?.text = "📍 $direccion"
         }
     }
+
+
     private fun bebidasLocal(): List<ProductoUI> = listOf(
-        ProductoUI(id = "beb1", nombre = "Agua sin gas", precio = 2.90, imagenUrl = null),
-        ProductoUI(id = "beb2", nombre = "Gaseosa personal", precio = 4.50, imagenUrl = null),
-        ProductoUI(id = "beb3", nombre = "Jugo natural", precio = 6.50, imagenUrl = null),
-        ProductoUI(id = "beb4", nombre = "Chicha morada", precio = 7.00, imagenUrl = null)
+        ProductoUI(id = "beb1", nombre = "Agua sin gas", precio = 2.90, imagenRes = R.drawable.agua),
+        ProductoUI(id = "beb2", nombre = "Gaseosa personal", precio = 4.50, imagenRes = R.drawable.gaseosa),
+        ProductoUI(id = "beb3", nombre = "Jugo natural", precio = 6.50, imagenRes = R.drawable.jugo),
+        ProductoUI(id = "beb4", nombre = "Chicha morada", precio = 7.00, imagenRes = R.drawable.chicha)
     )
 
     private fun setupToggle(view: View, btnId: Int, rvId: Int) {

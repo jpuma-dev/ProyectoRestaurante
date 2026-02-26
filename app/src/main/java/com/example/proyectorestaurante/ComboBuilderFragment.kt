@@ -98,7 +98,7 @@ class ComboBuilderFragment : Fragment(R.layout.fragment_combo_builder) {
                             postreSeleccionado = po
                             Toast.makeText(requireContext(), "Postre: ${po.nombre}", Toast.LENGTH_SHORT).show()
                         },
-                        onAddClick = { po -> // + pequeño también selecciona
+                        onAddClick = { po ->
                             postreSeleccionado = po
                             Toast.makeText(requireContext(), "Postre: ${po.nombre}", Toast.LENGTH_SHORT).show()
                         }
@@ -163,10 +163,10 @@ class ComboBuilderFragment : Fragment(R.layout.fragment_combo_builder) {
 
     private fun bebidasLocal(): List<ProductoUI> {
         return listOf(
-            ProductoUI(id="beb1", nombre="Agua sin gas", precio=2.90, imagenUrl=null),
-            ProductoUI(id="beb2", nombre="Gaseosa personal", precio=4.50, imagenUrl=null),
-            ProductoUI(id="beb3", nombre="Jugo natural", precio=6.50, imagenUrl=null),
-            ProductoUI(id="beb4", nombre="Chicha morada", precio=7.00, imagenUrl=null)
+            ProductoUI(id = "beb1", nombre = "Agua sin gas", precio = 2.90, imagenRes = R.drawable.agua),
+            ProductoUI(id = "beb2", nombre = "Gaseosa personal", precio = 4.50, imagenRes = R.drawable.gaseosa),
+            ProductoUI(id = "beb3", nombre = "Jugo natural", precio = 6.50, imagenRes = R.drawable.jugo),
+            ProductoUI(id = "beb4", nombre = "Chicha morada", precio = 7.00, imagenRes = R.drawable.chicha)
         )
     }
 }

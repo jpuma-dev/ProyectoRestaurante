@@ -23,7 +23,7 @@ class WelcomeActivity : AppCompatActivity() {
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Para que "Omitir" no se meta bajo la status bar (notch)
+
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(bars.left, bars.top, bars.right, bars.bottom)
@@ -55,7 +55,7 @@ class WelcomeActivity : AppCompatActivity() {
             tab.setIcon(R.drawable.dot_selector)
         }.attach()
 
-        // Auto-navega cuando llega a la última
+
         pageCallback = object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
@@ -70,7 +70,7 @@ class WelcomeActivity : AppCompatActivity() {
         }
         binding.viewPager.registerOnPageChangeCallback(pageCallback)
 
-        // Omitir
+
         binding.OmitirTxtView.setOnClickListener {
             startActivity(Intent(this, UbicacionActivity::class.java))
             finish()
