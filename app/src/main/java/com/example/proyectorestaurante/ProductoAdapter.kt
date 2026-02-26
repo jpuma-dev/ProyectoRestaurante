@@ -30,17 +30,17 @@ class ProductoAdapter(
     override fun onBindViewHolder(holder: VH, position: Int) {
         val item = items[position]
 
-        Glide.with(holder.itemView)
-            .load(item.imagenUrl)
-            .placeholder(R.mipmap.ic_launcher)
-            .into(holder.imgProducto)
-
         holder.tvNombre.text = item.nombre
         holder.tvPrecio.text = "S/ %.2f".format(item.precio)
 
-
-        holder.itemView.setOnClickListener { onItemClick(item) }
-
+        if (item.imagenRes != null) {
+            holder.imgProducto.setImageResource(item.imagenRes)
+        } else {
+            Glide.with(holder.itemView)
+                .load(item.imagenUrl)
+                .placeholder(R.drawable.food_header)
+                .into(holder.imgProducto)
+        }
 
         holder.btnAdd.setOnClickListener { onAddClick(item) }
     }

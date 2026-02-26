@@ -20,7 +20,7 @@ class UbicacionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // OSMDroid config
+
         val conf = Configuration.getInstance()
         conf.userAgentValue = packageName
         conf.load(applicationContext, getSharedPreferences("osmdroid", MODE_PRIVATE))
@@ -34,11 +34,11 @@ class UbicacionActivity : AppCompatActivity() {
             insets
         }
 
-        // MapView
+
         mapView = findViewById(R.id.mapView)
         mapView.setMultiTouchControls(true)
 
-        // Punto fijo (restaurante)
+
         val punto = GeoPoint(-16.3989, -71.5350)
 
         mapView.controller.setZoom(18.0)
@@ -50,10 +50,10 @@ class UbicacionActivity : AppCompatActivity() {
         marker.title = "Restaurante"
         mapView.overlays.add(marker)
 
-        // Back
+
         findViewById<ImageView>(R.id.btnBack).setOnClickListener { finish() }
 
-        // Comencemos -> ConfUbiActivity
+
         findViewById<MaterialButton>(R.id.btnComencemos).setOnClickListener {
             startActivity(Intent(this, ConfUbiActivity::class.java))
         }

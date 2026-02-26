@@ -5,5 +5,6 @@ data class ProductoUI(
     val nombre: String,
     val precio: Double,
     val imagenUrl: String? = null,
+    val imagenRes: Int? = null,
     var cantidad: Int = 1
 )
